@@ -26,15 +26,18 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
     private static final DiffUtil.ItemCallback<Note> DIFF_CALLBACK = new DiffUtil.ItemCallback<Note>() {
         @Override
         public boolean areItemsTheSame(@NonNull Note oldItem, @NonNull Note newItem) {
-            return oldItem.getId() == newItem.getId();
+            boolean d = oldItem.getId() == newItem.getId();
+            System.err.println("\n\n** " + d + "  " + oldItem.getTitle() + " - " + newItem.getTitle()+ " **\n\n");
+            return d;
         }
 
         @SuppressLint("DiffUtilEquals")
         @Override
         public boolean areContentsTheSame(@NonNull Note oldItem, @NonNull Note newItem) {
-            return oldItem.getTitle().equals(newItem.getTitle()) &&
+            boolean d = oldItem.getTitle().equals(newItem.getTitle()) &&
                     oldItem.getDescription().equals(newItem.getDescription()) &&
                     oldItem.getPriority() == newItem.getPriority();
+            return d;
         }
     };
 
