@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         final NoteAdapter adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
-        System.out.println("MEEEEC");
+
         noteViewModel.getAllnotes().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
